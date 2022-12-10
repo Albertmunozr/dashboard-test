@@ -1,12 +1,12 @@
 import "./App.css";
-import Dashboard from "./views/Dashboard";
+import DashboardA from "./views/DashboardA";
 import SideMenu from "./components/SideMenu";
 
 function App() {
   return (
     <div className="App">
       <SideMenu />
-      <Dashboard />
+      <DashboardA />
     </div>
   );
 }
