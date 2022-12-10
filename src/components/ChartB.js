@@ -1,31 +1,33 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-import { useGetCurrencyQuery } from "../features/services/currencyChart";
+import { useGetWeatherQuery } from "../features/services/weatherChart";
 
-function ChartA({ type }) {
-  const { data, isError, error, isLoading } = useGetCurrencyQuery();
+function ChartB({ type, width }) {
+  const { data, isError, error, isLoading } = useGetWeatherQuery();
 
   if (isLoading) return <div>Loading...</div>;
   else if (isError) return <div>Error: {error.message}</div>;
 
-  const value = data.data.slice(-10).map((val) => val.priceUsd.substring(0, 8));
-  const date = data.data.slice(-10).map((dat) => dat.date.substring(0, 10));
-
-  //console.log(value);
-  //console.log(date);
+  const time = data.hourly.time.slice(0, 15);
+  const relHum = data.hourly.relativehumidity_2m.slice(0, 15);
+  const temp = data.hourly.temperature_2m.slice(0, 15);
 
   const chardata = {
     //data on the x-axis
     chart: { id: "line-chart" },
     xaxis: {
-      categories: date,
+      categories: time,
     },
 
     series: [
       //data on the y-axis
       {
-        name: "Bitcoin value",
-        data: value,
+        name: "Relative Humidity",
+        data: relHum,
+      },
+      {
+        name: "Temperature",
+        data: temp,
       },
     ],
   };
@@ -36,10 +38,10 @@ function ChartA({ type }) {
         options={chardata}
         series={chardata.series}
         type={type}
-        width="400"
+        width={width}
       />
     </div>
   );
 }
 
-export default ChartA;
+export default ChartB;

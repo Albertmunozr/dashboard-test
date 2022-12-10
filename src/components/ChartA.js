@@ -2,7 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 import { useGetCurrencyQuery } from "../features/services/currencyChart";
 
-function ChartA({ type }) {
+function ChartA({ type, width }) {
   const { data, isError, error, isLoading } = useGetCurrencyQuery();
 
   if (isLoading) return <div>Loading...</div>;
@@ -33,7 +33,7 @@ function ChartA({ type }) {
         options={chardata}
         series={chardata.series}
         type={type}
-        width="400"
+        width={width}
       />
     </div>
   );

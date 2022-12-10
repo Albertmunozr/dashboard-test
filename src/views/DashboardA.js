@@ -7,11 +7,9 @@ import ChartC from "../components/ChartC";
 function DashboardA() {
   return (
     <>
-      <div className="charts">
-        <ChartA type="area" data="" />
-        <ChartB type="line" data="" />
-        <ChartC type="bar" data="" />
-      </div>
+      <ChartA type="area" width="400" data="" />
+      <ChartB type="line" width="400" data="" />
+      <ChartC type="bar" width="400" data="" />
 
       <ClientTable />
     </>

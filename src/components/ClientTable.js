@@ -3,7 +3,6 @@ import { useGetUsersQuery } from "../features/services/tableUsers";
 
 function ClientTable() {
   const [search, setSearch] = useState("");
-  //const [select, setSelect] = useState({});
   const [list, setList] = useState([]);
   const { data, isError, error, isLoading } = useGetUsersQuery();
 
@@ -16,7 +15,6 @@ function ClientTable() {
   };
 
   const handleSelectChange = (e) => {
-    //setSelect(e.target.value);
     seleccion(e.target.value);
   };
 
@@ -39,12 +37,12 @@ function ClientTable() {
 
   return (
     <>
-      <div className="table">
-        <table>
+      <div className="table w-full mt-8">
+        <table className="border-collapse border border-slate-400 w-full">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>
+              <th className="border border-slate-300">Nombre</th>
+              <th className="border border-slate-300">
                 User
                 <div>
                   <input
@@ -56,15 +54,14 @@ function ClientTable() {
                   />
                 </div>
               </th>
-              <th>Email</th>
-              <th>Web</th>
-              <th>
+              <th className="border border-slate-300">Email</th>
+              <th className="border border-slate-300">Web</th>
+              <th className="border border-slate-300">
                 Compañia
                 <div>
                   <select
                     name="Select"
                     placeholder="Empresa.."
-                    //value={select}
                     onChange={handleSelectChange}
                   >
                     <option>Todas</option>
@@ -83,11 +80,17 @@ function ClientTable() {
             <tbody>
               {data.map((user) => (
                 <tr key={user.id}>
-                  <td>{user.name}</td>
-                  <td>{user.username}</td>
-                  <td>{user.email}</td>
-                  <td>{user.website}</td>
-                  <td>{user.company.name}</td>
+                  <td className="border border-slate-300 p-2">{user.name}</td>
+                  <td className="border border-slate-300 p-2">
+                    {user.username}
+                  </td>
+                  <td className="border border-slate-300 p-2">{user.email}</td>
+                  <td className="border border-slate-300 p-2">
+                    {user.website}
+                  </td>
+                  <td className="border border-slate-300 p-2">
+                    {user.company.name}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -95,11 +98,17 @@ function ClientTable() {
             <tbody>
               {list.map((user) => (
                 <tr key={user.id}>
-                  <td>{user.name}</td>
-                  <td>{user.username}</td>
-                  <td>{user.email}</td>
-                  <td>{user.website}</td>
-                  <td>{user.company.name}</td>
+                  <td className="border border-slate-300 p-2">{user.name}</td>
+                  <td className="border border-slate-300 p-2">
+                    {user.username}
+                  </td>
+                  <td className="border border-slate-300 p-2">{user.email}</td>
+                  <td className="border border-slate-300 p-2">
+                    {user.website}
+                  </td>
+                  <td className="border border-slate-300 p-2">
+                    {user.company.name}
+                  </td>
                 </tr>
               ))}
             </tbody>
