@@ -23,7 +23,7 @@ function SideMenu() {
           </li>
           <li>
             <NavLink
-              to="/dashboardB"
+              to="/dashboard-test/dashboardB"
               className={(navData) =>
                 navData.isActive
                   ? "flex items-center text-md p-2 bg-gray-800 rounded-md"
@@ -35,7 +35,7 @@ function SideMenu() {
           </li>
           <li>
             <NavLink
-              to="/graficas"
+              to="/dashboard-test/graficas"
               className={(navData) =>
                 navData.isActive
                   ? "flex items-center text-md p-2 bg-gray-800 rounded-md"

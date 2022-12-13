@@ -16,8 +16,11 @@ function App() {
           <div className="flex flex-wrap justify-between">
             <Routes>
               <Route path="/dashboard-test/" element={<DashboardA />} />
-              <Route path="/dashboardB" element={<DashboardB />} />
-              <Route path="/graficas" element={<DashboardC />} />
+              <Route
+                path="/dashboard-test/dashboardB"
+                element={<DashboardB />}
+              />
+              <Route path="/dashboard-test/graficas" element={<DashboardC />} />
             </Routes>
           </div>
         </main>
