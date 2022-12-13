@@ -15,7 +15,7 @@ function App() {
           <h1 className="text-4xl font-bold mb-6">Dashboard</h1>
           <div className="flex flex-wrap justify-between">
             <Routes>
-              <Route path="/" element={<DashboardA />} />
+              <Route path="/dashboard-test/" element={<DashboardA />} />
               <Route path="/dashboardB" element={<DashboardB />} />
               <Route path="/graficas" element={<DashboardC />} />
             </Routes>
