@@ -40,7 +40,7 @@ function ClientTable() {
       <div className="table w-full mt-8 bg-white m-2">
         <table className="border-collapse border border-slate-400 w-full">
           <thead>
-            <tr>
+            <tr className="bg-gray-400">
               <th className="border border-slate-300">Nombre</th>
               <th className="border border-slate-300">
                 User
@@ -51,6 +51,7 @@ function ClientTable() {
                     placeholder="Buscar por Username"
                     value={search}
                     onChange={handleChange}
+                    className="rounded-sm mb-1"
                   />
                 </div>
               </th>
@@ -63,6 +64,7 @@ function ClientTable() {
                     name="Select"
                     placeholder="Empresa.."
                     onChange={handleSelectChange}
+                    className="rounded-sm mb-1"
                   >
                     <option>Todas</option>
                     {data.map((sel) => (
