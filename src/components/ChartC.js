@@ -1,29 +1,42 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-import { useGetVatQuery } from "../features/services/vatChart";
+import {
+  useGetExchangeValueQuery,
+  useGetExchangeNameQuery,
+} from "../features/services/exchangeChart";
 
 function ChartC({ type, width }) {
-  const { data, isError, error, isLoading } = useGetVatQuery();
+  const responseVal = useGetExchangeValueQuery();
+  const responseName = useGetExchangeNameQuery();
 
-  if (isLoading) return <div>Loading...</div>;
-  else if (isError) return <div>Error: {error.message}</div>;
-  console.log(data);
+  if (responseVal.isLoading) return <div>Loading...</div>;
+  else if (responseVal.isError)
+    return <div>Error: {responseVal.error.message}</div>;
 
-  //const value = data.data.slice(-10).map((val) => val.priceUsd.substring(0, 8));
-  //const date = data.data.slice(-10).map((dat) => dat.date.substring(0, 10));
+  if (responseName.isLoading) return <div>Loading...</div>;
+  else if (responseName.isError)
+    return <div>Error: {responseName.error.message}</div>;
 
   const chardata = {
     //data on the x-axis
     chart: { id: "bar-chart" },
     xaxis: {
-      categories: [2, 4, 8],
+      categories: [
+        responseName.data.usd,
+        responseName.data.gbp,
+        responseName.data.chf,
+      ],
     },
 
     series: [
       //data on the y-axis
       {
-        name: "Bitcoin value",
-        data: [4, 12, 45],
+        name: "Euro Exchange value",
+        data: [
+          responseVal.data.eur.usd,
+          responseVal.data.eur.gbp,
+          responseVal.data.eur.chf,
+        ],
       },
     ],
   };
@@ -35,6 +48,7 @@ function ChartC({ type, width }) {
         series={chardata.series}
         type={type}
         width={width}
+        className="bg-white p-2 m-2 rounded-md"
       />
     </div>
   );

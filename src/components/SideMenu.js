@@ -12,7 +12,11 @@ function SideMenu() {
           <li>
             <NavLink
               to="/"
-              className="flex items-center text-md p-2 hover:bg-gray-800 rounded-md"
+              className={(navData) =>
+                navData.isActive
+                  ? "flex items-center text-md p-2 bg-gray-800 rounded-md"
+                  : "flex items-center text-md p-2 hover:bg-gray-800 rounded-md"
+              }
             >
               Home
             </NavLink>
@@ -20,7 +24,11 @@ function SideMenu() {
           <li>
             <NavLink
               to="/dashboardB"
-              className="flex items-center text-md p-2 hover:bg-gray-800 rounded-md"
+              className={(navData) =>
+                navData.isActive
+                  ? "flex items-center text-md p-2 bg-gray-800 rounded-md"
+                  : "flex items-center text-md p-2 hover:bg-gray-800 rounded-md"
+              }
             >
               Dashboard A
             </NavLink>
@@ -28,15 +36,23 @@ function SideMenu() {
           <li>
             <NavLink
               to="/graficas"
-              className="flex items-center text-md p-2 hover:bg-gray-800 rounded-md"
+              className={(navData) =>
+                navData.isActive
+                  ? "flex items-center text-md p-2 bg-gray-800 rounded-md"
+                  : "flex items-center text-md p-2 hover:bg-gray-800 rounded-md"
+              }
             >
               Dashboard B
             </NavLink>
           </li>
         </ul>
         <div className="py-8 flex flex-col gap-4 relative">
-          <span className="text-blue-300">User: {user.value}</span>{" "}
-          <button className="bg-gray-800 p-2 rounded-md">Logout</button>
+          <span className="bg-gray-800 p-2 rounded-md text-blue-300 font-bold text-center">
+            User: {user.value}
+          </span>{" "}
+          <button className="bg-gray-800 p-2 rounded-md text-red-500 font-bold hover:bg-gray-700">
+            Logout
+          </button>
         </div>
       </div>
     </>

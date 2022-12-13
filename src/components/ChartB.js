@@ -39,6 +39,7 @@ function ChartB({ type, width }) {
         series={chardata.series}
         type={type}
         width={width}
+        className="bg-white p-2 m-2 rounded-md"
       />
     </div>
   );

@@ -6,8 +6,8 @@ import ChartC from "../components/ChartC";
 function DashboardB() {
   return (
     <>
-      <ChartB type="line" width="500" data="" />
-      <ChartC type="bar" width="500" data="" />
+      <ChartB type="line" width="460" />
+      <ChartC type="bar" width="460" />
 
       <ClientTable />
     </>

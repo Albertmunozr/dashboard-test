@@ -6,9 +6,9 @@ import ChartC from "../components/ChartC";
 function DashboardC() {
   return (
     <>
-      <ChartA type="area" width="600" data="" />
-      <ChartB type="line" width="600" data="" />
-      <ChartC type="bar" width="600" data="" />
+      <ChartA type="area" width="580" />
+      <ChartB type="line" width="580" />
+      <ChartC type="bar" width="580" />
     </>
   );
 }

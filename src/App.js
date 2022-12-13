@@ -6,14 +6,14 @@ import SideMenu from "./components/SideMenu";
 
 function App() {
   return (
-    <div className="md:container md:mx-auto flex gap-6">
+    <div className="md:container md:mx-auto flex">
       <BrowserRouter>
         <section>
           <SideMenu />
         </section>
-        <main className="py-6">
-          <h1 className="text-4xl font-bold">Dashboard</h1>
-          <div className="flex flex-wrap">
+        <main className="p-6 bg-slate-100">
+          <h1 className="text-4xl font-bold mb-6">Dashboard</h1>
+          <div className="flex flex-wrap justify-between">
             <Routes>
               <Route path="/" element={<DashboardA />} />
               <Route path="/dashboardB" element={<DashboardB />} />

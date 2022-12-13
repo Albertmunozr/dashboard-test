@@ -37,7 +37,7 @@ function ClientTable() {
 
   return (
     <>
-      <div className="table w-full mt-8">
+      <div className="table w-full mt-8 bg-white m-2">
         <table className="border-collapse border border-slate-400 w-full">
           <thead>
             <tr>
