@@ -11,7 +11,7 @@ function SideMenu() {
         <ul className="flex flex-col gap-4 relative py-4">
           <li>
             <NavLink
-              to="/"
+              to="/dashboard-test/"
               className={(navData) =>
                 navData.isActive
                   ? "flex items-center text-md p-2 bg-gray-800 rounded-md"
